@@ -1,0 +1,68 @@
+FORMAT: 1A
+HOST: https://polls.apiblueprint.org/
+
+# Ilgın Arpacı
+
+Polls is a simple API allowing consumers to view polls and vote in them.
+
+## Müşteri Get Servisi [/musteri]
+
+### Müşteriler [GET]
+
++ Response 200 (application/json)
+
+         [
+            {
+                "MusteriListesi": [
+                    {
+                        "Id": "1",
+                        "MusteriAdi": "Ilgın",
+                        "MusteriSoyadi": "Arpacı",
+                        "Cinsiyet": "Kadın",
+                        "DogumTarihi": "18.02.1990",
+                        "Adres": "Nişantaşı",
+                        "Sehir": "İstanbul"
+                    },
+                    {
+                        "Id": "2",
+                        "MusteriAdi": "Onur",
+                        "MusteriSoyadi": "Kulabaş",
+                        "Cinsiyet": "Erkek",
+                        "DogumTarihi": "05.05.1970",
+                        "Adres": "Ataşehir",
+                        "Sehir": "İstanbul"
+                    }
+                ]
+            }
+         ]     
+
+### Yeni Müşteri [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "Id": "2",
+            "MusteriAdi": "Onur",
+            "MusteriSoyadi": "Kulabaş",
+            "Cinsiyet": "Erkek",
+            "DogumTarihi": "05.05.1970",
+            "Adres": "Ataşehir",
+            "Sehir": "İstanbul"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+    
+            {
+                "result": "Success",
+                "message": "Kayıt işleminiz yapılmıştır."
+            }
